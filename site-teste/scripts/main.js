@@ -1,15 +1,18 @@
+
 function mudarH1() {
-    const novah1 = document.querySelector("h1");
-    novah1.textContent = "Assistencia Autorizada";    
+    const novaH1 = document.querySelector("h1");
+    novaH1.textContent = "Olá Mundo";
 }
 
-function verificarSite() {
-    let site = "Assistencia";
-    if (site === "Assistencia") {
-      alert("solicitar visita tecnica!");
+function verificarTime() {
+    let time = prompt("Digite seu time");
+    if (time === "mengo") {
+        alert("Time do coração Flamengo");
     } else {
-      alert("Aaaamas chocolate é o meu favorito…");
-    }    
+        alert("Outro time não importa");
+        window.location.href = "http://www.google.com"
+    }
+        
 }
 
-document.querySelector("img").addEventListener("click", verificarSite);
+document.querySelector("img").addEventListener("click",verificarTime);
