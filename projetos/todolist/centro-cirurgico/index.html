@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Painel Centro cirúrgico</title>
+</head>
+<body>
+    <h1>Gerenciar Painel Centro Cirúrgico</h2>
+    <form id="loginForm">
+        <label for="username"><b>Usuário</b>:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password"><b>Senha</b>:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Acessar</button>
+    </form>
+    <p id="errorMessage" style="color: red; display: none;">Usuário ou senha incorretos. Por favor, tente novamente.</p>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "senai" && password === "HRT2024") {
+                window.location.href = "painel.html";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

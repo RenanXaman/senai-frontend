@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn-add {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-remove {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Painel de Controle Centro Cirúrgico</h2>
+    <button class="btn btn-add" onclick="adicionarPaciente()">Adicionar Paciente</button>
+    <button class="btn btn-remove" onclick="removerPaciente()">Remover Paciente</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Local</th>
+                <th>Horário Previsto</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaPacientes">
+            <!-- Linhas da tabela serão adicionadas dinamicamente aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        function adicionarPaciente() {
+            var nome = prompt("Digite o nome do paciente:");
+            var local = prompt("Digite o local do paciente:");
+            var horario = prompt("Digite o horário previsto do paciente:");
+
+            if (nome && local && horario) {
+                var tabela = document.getElementById("tabelaPacientes");
+                var newRow = tabela.insertRow();
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+                cell1.innerHTML = nome;
+                cell2.innerHTML = local;
+                cell3.innerHTML = horario;
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        }
+
+        function removerPaciente() {
+            var tabela = document.getElementById("tabelaPacientes");
+            if (tabela.rows.length > 0) {
+                tabela.deleteRow(-1); // Remove a última linha da tabela
+            } else {
+                alert("Não há pacientes para remover.");
+            }
+        }
+    </script>
+</body>
+</html>
